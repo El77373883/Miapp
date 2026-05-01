@@ -34,8 +34,11 @@ jobs:
       - name: Build APK
         run: ./gradlew assembleDebug
 
-      - name: Upload APK
+      - name: Find APK (debug)
+        run: find . -name "*.apk"
+
+      - name: Upload APK (safe)
         uses: actions/upload-artifact@v4
         with:
           name: app-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: "**/*.apk"
