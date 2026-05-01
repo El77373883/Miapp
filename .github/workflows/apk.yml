@@ -31,16 +31,14 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build APK
-        run: ./gradlew assembleDebug
+      - name: Clean & Build APK
+        run: |
+          ./gradlew clean assembleDebug
+          echo "=== APK SEARCH ==="
+          find . -name "*.apk"
 
-      # 🔍 DEBUG: ver dónde se generó el APK
-      - name: Find APK location
-        run: find . -type f -name "*.apk"
-
-      # 📦 UPLOAD (FIX REAL)
-      - name: Upload APK
+      - name: Upload APK (FIXED)
         uses: actions/upload-artifact@v4
         with:
           name: app-apk
-          path: "**/outputs/apk/**/*.apk"
+          path: "**/*.apk"
