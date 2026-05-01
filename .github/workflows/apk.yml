@@ -25,21 +25,14 @@ jobs:
       - name: Accept licenses
         run: yes | sdkmanager --licenses
 
-      - name: Install SDK tools
-        run: |
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+      - name: Install SDK
+        run: sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
-      - name: Install Gradle 8.2
-        run: |
-          wget https://services.gradle.org/distributions/gradle-8.2-bin.zip
-          unzip gradle-8.2-bin.zip
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Build APK
-        run: |
-          export PATH=$PWD/gradle-8.2/bin:$PATH
-          gradle assembleDebug \
-            -Pandroid.useAndroidX=true \
-            -Pandroid.enableJetifier=true
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
