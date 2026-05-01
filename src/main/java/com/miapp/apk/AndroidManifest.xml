@@ -3,8 +3,7 @@
     package="com.miapp.apk">
 
     <application
-        android:label="Mi App"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:label="Mi App">
 
         <activity
             android:name=".MainActivity"
@@ -16,6 +15,7 @@
             </intent-filter>
 
         </activity>
+
     </application>
 
 </manifest>
