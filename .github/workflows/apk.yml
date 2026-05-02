@@ -30,7 +30,7 @@ jobs:
 
       - name: Clean & Build APK
         run: |
-          gradle clean assembleDebug
+          gradle clean assembleDebug --warning-mode all
           echo "=== APK SEARCH ==="
           find . -name "*.apk"
 
