@@ -1,16 +1,26 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
+plugins {
+    id 'com.android.application' version '8.2.0' apply true
+}
+
+android {
+    namespace 'com.miapp.apk'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.miapp.apk"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }
