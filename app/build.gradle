@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.application' version '8.2.0' apply true
 }
 
 android {
@@ -15,7 +15,7 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
         }
     }
